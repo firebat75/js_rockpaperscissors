@@ -37,27 +37,6 @@ function playRound(playerSelection, computerSelection) {
 }
 }
 
-function game() {
-    let p = 0;
-    let c = 0;
-    for (i = 0; i < 5; i++) {
-        let choice = prompt("Choose: Rock, Paper, or Sissors")
-        let result = (playRound(choice, computerPlay()))
-        if (result.slice(0, 7) == "YOU WIN") {
-            p = p + 1
-        } else if (result.slice(0, 8) == "YOU LOSE") {
-            c = c + 1
-        }
-        console.log(result + ". The score is [Player: " + p + "]-[Computer: " + c + "]");
-    }
-    if (p > c) {
-        console.log("You Win!");
-    } else if (c > p) {
-        console.log("You Lose!")
-    } else {
-        console.log("Tie!")
-    }
-}
 
 const container = document.querySelector('#container');
 
@@ -71,7 +50,6 @@ buttons.forEach((button => {
     button.addEventListener('click', (e) => {
 
         if (gamefinish == true) {
-            console.log(container.childNodes)
             x = container.childNodes.length
             for (var i = 0; i < x; i++) {
                 container.removeChild(container.childNodes[0]);
@@ -102,7 +80,6 @@ buttons.forEach((button => {
         result.textContent = text;
 
         container.appendChild(result);
-        console.log(container.childNodes)
     });
 }));
 
